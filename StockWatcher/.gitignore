@@ -1,0 +1,6 @@
+gwt-unitCache/
+
+#war/<<app-name>>/
+war/stockwatcher/
+war/WEB-INF/classes/
+war/WEB-INF/deploy/
