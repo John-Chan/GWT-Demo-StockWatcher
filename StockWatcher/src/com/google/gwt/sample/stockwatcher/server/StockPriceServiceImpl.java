@@ -1,7 +1,7 @@
 package com.google.gwt.sample.stockwatcher.server;
 
 import java.util.Random;
-
+//import com.google.gwt.user.client.Random;
 import com.google.gwt.sample.stockwatcher.client.DelistedException;
 import com.google.gwt.sample.stockwatcher.client.StockPrice;
 import com.google.gwt.sample.stockwatcher.client.StockPriceService;
@@ -18,6 +18,7 @@ public class StockPriceServiceImpl extends RemoteServiceServlet implements
 
 	@Override
 	public StockPrice[] getPrices(String[] symbols) throws DelistedException {
+	
 		Random rnd = new Random();
 
 		StockPrice[] prices = new StockPrice[symbols.length];
@@ -34,6 +35,24 @@ public class StockPriceServiceImpl extends RemoteServiceServlet implements
 		}
 
 		return prices;
+	
+		
+		/*
+		StockPrice[] prices = new StockPrice[symbols.length];
+		for (int i = 0; i < symbols.length; i++) {
+
+			if (symbols[i].equals("ERR")) {
+				throw new DelistedException("ERR");
+			}
+			double price = Random.nextDouble() * MAX_PRICE;
+			double change = price * MAX_PRICE_CHANGE
+					* (Random.nextDouble() * 2f - 1f);
+
+			prices[i] = new StockPrice(symbols[i], price, change);
+		}
+
+		return prices;
+		*/
 	}
 
 }
